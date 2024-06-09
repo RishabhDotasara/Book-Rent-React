@@ -1,0 +1,151 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+a 
+{
+    text-decoration: none;
+}
+
+:root 
+{
+    --bg-lite:rgb(16, 22, 35);
+}
+
+.links 
+{
+    list-style: none;
+    background: var(--bg-lite);
+    flex: 0.2;
+    width: 20vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 20px;
+
+    position: absolute;
+    right:0;
+    top: 0px;
+    display: none;
+}
+
+.links.active
+{
+    display:flex;
+}
+
+
+.nav 
+{
+    display: flex;
+    background-color: rgba(1, 8, 23,0.7);
+    backdrop-filter: blur(20px);
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.nav h1 
+{
+    /* background: blue; */
+    flex: 0.1;
+}
+
+.nav .search-box
+{
+    /* border: 1px solid grey; */
+    border-radius: 10px;
+    /* padding: 10px ; */
+    width:40%;
+    display: flex;
+    flex: 0.4;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-lite);
+
+}
+
+.nav .hamburger
+{
+    flex: 0.1;
+    font-size: 1.7rem;
+    cursor: pointer;
+    /* background: red; */
+    
+    /* z-index: 9; */
+}
+
+
+
+
+.nav .search-box input 
+{
+    width: 90%;
+    padding: 10px;
+    background-color: transparent;
+    outline: none;
+    font-size: 1.1rem;
+    border: none;
+    border-right: 1px solid grey;
+
+}
+
+.nav .search-box .search-btn 
+{
+    outline: none;
+    font-size: 1.2rem;
+    border: none;
+    background: transparent;
+    height: 100%;
+    cursor: pointer;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+
+
+
+
+
+@media screen and (max-width: 768px)
+{
+    .nav .search-box
+    {
+        display: none;
+    }
+    .nav 
+    {
+        /* flex-direction: column; */
+        gap: 10px;
+        /* flex-wrap: wrap; */
+    }
+    .nav .hamburger
+    {
+        /* flex: 0.2; */
+        font-size: 2rem;
+        cursor: pointer;
+        /* z-index: 9; */
+    }
+
+
+    .nav .links
+    {
+        width: 100%;
+    }
+}

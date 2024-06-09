@@ -1,0 +1,131 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding: 100px 200px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card 
+{
+    background: var(--bg-lite);
+    /* width: 30vw; */
+    height: 302px;
+    padding: 10px 10px;
+    aspect-ratio: 1/1.1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    gap:5px;
+    padding-bottom: 10px;
+    
+}
+
+.card .thumbnail 
+{
+    object-fit: contain;
+    width: 100%;
+    background: var(--background);
+    border-radius: 10px;
+    height: 60%;
+    /* flex: 0.6; */
+    /* height: 60%; */
+}
+
+.card .thumbnail.load 
+{
+    animation: flicker 1s infinite;
+
+}
+@keyframes flicker 
+{
+    0%
+    {
+        opacity: 0.5;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+.card h2 
+{
+    background: transparent;
+    
+}
+
+.card .title
+{
+    height: 30px;
+    border-radius: 10px;
+    /* background: var(--background); */
+}
+.card .title.load 
+{
+    animation: flicker 1s infinite;
+    background: var(--background);
+}
+
+.card .info 
+{
+    background: transparent;
+    list-style-type: disc;
+    color: white;
+    display: flex;
+    gap: 10px;
+}
+
+.card .desc 
+{
+    display: flex;
+    gap: 5px;
+    background: transparent;
+    flex-direction: column;
+}
+
+.card .info .tag 
+{
+    padding: 4px 5px;
+    font-size: 80%;
+    height: 25px;
+    min-width: 30px;
+    border-radius: 5px;
+    background: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card .info .tag.load
+{
+    animation: flicker 1s infinite;
+
+}
+
+.card  button 
+{
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: none;
+    margin-top: 4px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgb(4, 4, 196);
+}
+
+.card  button:hover 
+{
+    background: rgb(3, 3, 151);
+}
+
