@@ -1,0 +1,113 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.detail-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+
+.detail-container .cover-image
+{
+    /* position: fixed; */
+    /* top: 100px; */
+    /* background-color: red; */
+    align-self: center;
+    /* left: 30px; */
+    height: 200px;
+    object-fit: contain;
+    aspect-ratio: 1/1;
+    width: 200px;
+}
+
+.detail-container .detail-card 
+{
+    /* background-color: red; */
+    display: flex;
+    align-items: flex-start;
+    margin-top: 100px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail-container .block
+{
+    margin-bottom: 30px;
+    width:100%
+}
+
+.detail-container .block h2 
+{
+    color:lightblue;
+}
+
+.detail-container .block .rent-form
+{
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    /* background: red; */
+}
+
+
+.detail-container .block .rent-form input 
+{
+    background-color: var(--bg-lite);
+    outline: none;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+.detail-container .block .rent-form input[type="date"]::-webkit-calendar-picker-indicator 
+{
+    filter: invert(1);
+}
+
+.detail-container .block .rent-form button 
+{
+    background: var(--bg-btn);
+    outline: none;
+  
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px)
+{
+    /* .detail-container
+    {
+        flex-direction: row;
+    } */
+
+    .detail-container .detail-card 
+    {
+        margin-top: 0px;
+    }
+
+    .detail-container .cover-image
+    {
+        position: relative;
+        margin-bottom: 100px;
+        top: 100px;
+    }
+
+    .detail-container .detail-card
+    {
+        width: 80vw;
+        background: transparent;
+    }
+}

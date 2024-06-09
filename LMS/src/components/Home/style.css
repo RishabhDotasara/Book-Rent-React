@@ -89,7 +89,7 @@
 .card .desc 
 {
     display: flex;
-    gap: 5px;
+    gap: 3px;
     background: transparent;
     flex-direction: column;
 }
@@ -112,7 +112,7 @@
 
 }
 
-.card  button 
+.card  .rent-btn 
 {
     padding: 10px;
     width: 100%;
@@ -121,11 +121,12 @@
     margin-top: 4px;
     border-radius: 10px;
     cursor: pointer;
-    background: rgb(4, 4, 196);
+    background: var(--bg-btn);
+    text-align: center;
 }
 
-.card  button:hover 
+.card  .rent-btn:hover 
 {
-    background: rgb(3, 3, 151);
+    background: var(--bg-btn-dark);
 }
 

@@ -11,9 +11,16 @@
 {
     --bg-lite:rgb(16, 22, 35);
     --background:rgb(1, 8, 23);
+    --bg-btn:rgb(4, 4, 196);
+    --bg-btn-dark:rgb(3, 3, 133);
 }
 
 body 
 {
     background: var(--background);
+}
+
+::-webkit-scrollbar
+{
+    display: none;
 }

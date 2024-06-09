@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react'
 import "./style.css"
 import loadingContext from '../contexts/LoadingContext'
+import { Link } from 'react-router-dom'
 
 
 export default function Card(props) {
   
-  const {loading,setLoading} = useContext(loadingContext)
+  const {loading,setLoading,isLoggedIn} = useContext(loadingContext)
   console.log(loading)
 
   return (
@@ -27,7 +28,7 @@ export default function Card(props) {
         })}
         
       </div>
-      <button>Rent</button>
+      <Link className='rent-btn' to={isLoggedIn ? "/book/2" : "/login"}>Rent</Link>
       </div>
     </div>
   )
