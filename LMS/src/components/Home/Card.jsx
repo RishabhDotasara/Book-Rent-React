@@ -11,7 +11,7 @@ export default function Card(props) {
 
   return (
     <div className='card'>
-      {!loading && <img src="https://p1-ofp.static.pub//medias/25696296291_E14Gen5Black_202303220324451691991710588.png" className='thumbnail' alt="Image over here." />}
+      {!loading && <img src={props.imageURL} className='thumbnail' alt={props.title} />}
       {loading && <div className='thumbnail load'></div>}
       <div className="desc">
 
@@ -28,7 +28,7 @@ export default function Card(props) {
         })}
         
       </div>
-      <Link className='rent-btn' to={isLoggedIn ? "/book/2" : "/login"}>Rent</Link>
+      <Link className='rent-btn' to={isLoggedIn ? `/book/${props.id}` : "/login"}>Rent</Link>
       </div>
     </div>
   )

@@ -48,6 +48,10 @@
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
 .signup-container .form-l .btn-l:hover 
 {
@@ -61,4 +65,17 @@
 .link-text:hover
 {
     color: white;
+}
+
+.spinner 
+{
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate 
+{
+    100% 
+    {
+        transform: rotate(360deg);
+    }
 }

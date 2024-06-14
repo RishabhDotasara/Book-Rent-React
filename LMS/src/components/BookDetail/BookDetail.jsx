@@ -1,6 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import "./style.css"
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import loadingContext from '../contexts/LoadingContext';
+import { ImSpinner3 } from "react-icons/im";
 
 export default function BookDetail() {
 
@@ -8,6 +10,10 @@ export default function BookDetail() {
   const [to,setTo] = useState('');
   const [rate,setRate] = useState(5);
   const [price,setPrice] = useState(0);
+  const navigate = useNavigate()
+  const {id} = useParams()
+  const {SERVER_URL,loading,setLoading} = useContext(loadingContext)
+  const [book, setBook] = useState({})
 
   useEffect(()=>{
 
@@ -31,28 +37,60 @@ export default function BookDetail() {
 
   },[from,to])
 
-  const {id} = useParams()
-  return (
-    <div className='detail-container'>
-      
-      <div className="detail-card">
+  useEffect(()=>{
+    //check if the local storage has the token or not to check if user is logged or not.
+    const token = localStorage.getItem('token');
+    if (!token)
+    {
+      navigate("/login")
+    }
 
-      <img src="https://p1-ofp.static.pub//medias/25696296291_E14Gen5Black_202303220324451691991710588.png" alt="Image for book" className='cover-image' />
+    //fetch the book from id
+    setLoading(true)
+    fetch(`${SERVER_URL}/book/${id}`,{
+      method:"GET",
+      headers:{
+        "Authorization":`Bearer ${localStorage.getItem('token')}`,
+        
+      }
+    })
+    .then(res=>{
+      if(res.ok)
+        {
+          return res.json()
+        }
+      else 
+      {
+        alert("Error fetching the book. Please check your internet connection.")
+      }
+    })
+    .then(book=>{
+      // console.log(book.book)
+      setBook(book.book)
+      setLoading(false)
+    })
+  },[])
+  return (
+   <div className='detail-container'>
+      
+      {!loading && book && <div className="detail-card">
+
+      <img src={book.imageUrl} alt="Image for book" className='cover-image' />
       <div className="block">
         <h2>Title</h2>
-        <p>Death Note</p>
+        <p>{book.title}</p>
       </div>
       <div className="block">
         <h2>Author</h2>
-        <p>Rishabh Dotasara | Dippu</p>
+        <p>{book.author}</p>
       </div>
       <div className="block">
         <h2>About</h2>
-        <p>This is the official manga version of the anime Death Note.</p>
+        <p>{book.description}</p>
       </div>
       <div className="block">
         <h2>Rent</h2>
-        <p>$5 / Day</p>
+        <p>${book.price} / Day</p>
         <form className='rent-form'>
           <h3>From</h3>
           <input type="date" onChange={(e)=>{setFrom(e.target.value)}}/>
@@ -63,7 +101,8 @@ export default function BookDetail() {
           <button>Pay</button>
         </form>
       </div>
-      </div>
+      </div>}
+      
     </div>
   )
 }
